@@ -7,9 +7,9 @@
   <script src="js/jquery-1.11.1.min.js"></script>
   <script src="js/handlebars-v1.3.0.js"></script>
 
-  <header>Fun with Cards</header>
+  <header><h1>Fun with Cards</h1></header>
   <h2>A Look at Various Shuffles</h2>
-
+  <button id="shuffle">Shuffle!</button>
   <div class="main"></div>
 
   <script id="deck" type="text/x-handlebars-template">
@@ -17,18 +17,16 @@
       <tbody>
         <tr>
           <td>
-            {{#card}}
-              <div class="cardBorder">
-                <div class="rank">{{rank}}</div>
-                <div class="suit">{{suit}}</div>
-              </div>
-            {{/card}}
+            {{#cards}}
+              {{rank}}
+              {{suit}}
+            {{/cards}}
           </td>
         </tr>
       </tbody>
     </table>
   </script>
-  <script src="shuffle.js"></script>
+  <script src="js/shuffle.js"></script>
 
 </body>
 </html>
