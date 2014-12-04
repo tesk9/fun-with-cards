@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fun with Cards</title>
+</head>
+<body>
+  <header>Fun with Cards</header>
+  <h2>A Look at Various Shuffles</h2>
+
+  <div class="main"></div>
+
+  <!--Handlebars-->
+  <script src="shuffle.js">
+  <script type="text/x-handlebars-template">
+    {{#card}}
+      <div class="cardBorder">
+        <div class="rank">{{rank}}</div>
+        <div class="suit">{{suit}}</div>
+      </div>
+    {{/card}}
+  </script>
+
+</body>
+</html>
