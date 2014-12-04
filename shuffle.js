@@ -23,7 +23,7 @@ var Deck = function () {
 var cutDeck = function (deck) {
   var deckLength = deck.length;
 
-  var unifTrans = function () {
+  var getCutIndex = function () {
     var dist = distribution();
       var rand = Math.random();
       for (var i = 0; i<51; i++) {
@@ -63,12 +63,18 @@ var cutDeck = function (deck) {
     return mult;
   }
 
-  return [deck]
+    var deckLeft = deck.splice(0, getCutIndex()).slice();
+    var deckRight = deck.slice();
+  
+  return [deckLeft, deckRight]
 }
 
 var deck = new Deck();
+var deckSplit = cutDeck(deck)
+// console.log(deckSplit[0]);
+// console.log(deckSplit[1]);
+// console.log(deckSplit[0].length+deckSplit[1].length);
 
-var shuffleTimes = 1;
 
 // The Gilbert-Shannon-Reeds shuffle, as cited here: http://statweb.stanford.edu/~cgates/PERSI/papers/bayer92.pdf
 
