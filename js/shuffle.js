@@ -10,8 +10,7 @@ var Shuffle = function () {
       };
     };
 
-    var ranks = ["A",2,3,4,5,6,7,8,9,10,"J","Q","K"];
-    // var suits = ["Hearts", "Diamonds", "Spades", "Clubs"];
+    var ranks = ["A","2","3","4","5","6","7","8","9","10","J","Q","K"];
     var suits = ["symbols/hearts.png", "symbols/spades.png", "symbols/diamonds.png", "symbols/clubs.png"]; // "French suits" by F l a n k e r - Own work. Licensed under Public domain via Wikimedia Commons - http://commons.wikimedia.org/wiki/File:French_suits.svg#mediaviewer/File:French_suits.svg
     suits.forEach(function (suit) {
       ranks.forEach(function (rank) {
@@ -134,9 +133,13 @@ var Shuffle = function () {
 
 var template = Handlebars.compile($("#deck").html());
 
+var displayCount = function (count) {
+  $("#shuffleCount").text("Shuffle Count: " + count);
+}
 
 $(document).ready(function (){
-  // var firstShuffle = shuffle.oneShuffle();
+  var shuffleCount = 0;
+  displayCount(shuffleCount)
   var deck = Shuffle.deck;
   data = {cards: deck};
   $('.main').append(template(data));
@@ -144,7 +147,9 @@ $(document).ready(function (){
   $('#shuffle').on("click", function () {
     deck = Shuffle.oneShuffle(deck);
     data = {cards: deck}
-    $('.main').append(template(data));
+    shuffleCount++;
+    displayCount(shuffleCount);
+    $('.main').prepend(template(data));
   })
 
 });

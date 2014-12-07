@@ -2,13 +2,14 @@
 <html>
 <head>
   <title>Fun with Cards</title>
+  <link type="text/css" href="css/style.css" rel="stylesheet">
 </head>
 <body>
   <script src="js/jquery-1.11.1.min.js"></script>
   <script src="js/handlebars-v1.3.0.js"></script>
 
   <header><h1>Fun with Cards</h1></header>
-  <h2>A Look at Various Shuffles</h2>
+  <h2 id="shuffleCount"></h2>
   <button id="shuffle">Shuffle!</button>
   <div class="main"></div>
 
@@ -18,9 +19,12 @@
         <tr>
           <td>
             {{#cards}}
-              {{rank}}
-              {{suit}}
+              <div class="cardBorder">
+                {{rank}}
+                <img src='{{suit}}'>
+              </div>
             {{/cards}}
+            <hr>
           </td>
         </tr>
       </tbody>
