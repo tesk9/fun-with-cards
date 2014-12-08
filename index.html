@@ -11,6 +11,7 @@
   <header><h1>Fun with Cards</h1></header>
   <h2 id="shuffleCount"></h2>
   <button id="shuffle">Shuffle!</button>
+  <button id="rising">Show One Suit</button>
   <div class="main"></div>
 
   <script id="deck" type="text/x-handlebars-template">
@@ -19,9 +20,9 @@
         <tr>
           <td>
             {{#cards}}
-              <div class="cardBorder">
+              <div class="cardBorder {{suit}}">
                 {{rank}}
-                <img src='{{suit}}'>
+                <img src='{{suitImg}}'>
               </div>
             {{/cards}}
             <hr>

@@ -3,18 +3,20 @@ var Shuffle = function () {
   var Deck = function () {
     var deck = [];
 
-    var Card = function (suit, rank) {
+    var Card = function (suit, rank, suitImg) {
       return {
         suit: suit,
-        rank: rank
+        rank: rank,
+        suitImg: suitImg
       };
     };
 
     var ranks = ["A","2","3","4","5","6","7","8","9","10","J","Q","K"];
-    var suits = ["symbols/hearts.png", "symbols/spades.png", "symbols/diamonds.png", "symbols/clubs.png"]; // "French suits" by F l a n k e r - Own work. Licensed under Public domain via Wikimedia Commons - http://commons.wikimedia.org/wiki/File:French_suits.svg#mediaviewer/File:French_suits.svg
-    suits.forEach(function (suit) {
+    var suits = ["hearts", "spades", "diamonds", "clubs"];
+    var suitImg = ["symbols/hearts.png", "symbols/spades.png", "symbols/diamonds.png", "symbols/clubs.png"]; // "French suits" by F l a n k e r - Own work. Licensed under Public domain via Wikimedia Commons - http://commons.wikimedia.org/wiki/File:French_suits.svg#mediaviewer/File:French_suits.svg
+    suits.forEach(function (suit, index) {
       ranks.forEach(function (rank) {
-        deck.push(new Card(suit, rank));
+        deck.push(new Card(suit, rank, suitImg[index]));
       });
     });
 
@@ -150,6 +152,14 @@ $(document).ready(function (){
     shuffleCount++;
     displayCount(shuffleCount);
     $('.main').prepend(template(data));
+  })
+
+  $('#rising').on("click", function () {
+    console.log("Clicked")
+    var $top = $("table:nth-of-type(1)");
+    $top.find('.hearts').toggleClass("dark")
+    $top.find('.clubs').toggleClass("dark")
+    $top.find('.diamonds').toggleClass("dark")
   })
 
 });
