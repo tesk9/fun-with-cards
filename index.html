@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fun with Cards</title>
+  <link type="text/css" href="css/style.css" rel="stylesheet">
+</head>
+<body>
+  <script src="js/jquery-1.11.1.min.js"></script>
+  <script src="js/handlebars-v1.3.0.js"></script>
+
+  <header><h1>Fun with Cards</h1></header>
+  <h2 id="shuffleCount"></h2>
+  <button id="shuffle">Shuffle!</button>
+  <button id="rising">Show One Suit</button>
+  <div class="main"></div>
+
+  <script id="deck" type="text/x-handlebars-template">
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            {{#cards}}
+              <div class="cardBorder {{suit}}">
+                {{rank}}
+                <img src='{{suitImg}}'>
+              </div>
+            {{/cards}}
+            <hr>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </script>
+  <script src="js/shuffle.js"></script>
+
+</body>
+</html>
